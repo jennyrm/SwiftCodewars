@@ -98,3 +98,21 @@ func findDeletedNumber(_ array: [Int], _ mixArray: [Int]) -> Int {
 }
 
 findDeletedNumber([1,2,3,4,5,6,7,8,9], [3,2,4,6,7,8,1,9])
+
+/*Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+ 
+ Your task is to write a function maskify, which changes all but the last four characters into '#'.*/
+
+func maskify(_ string:String) -> String {
+    
+    var maskedString = ""
+    
+    for (index, letter) in string.enumerated() {
+        index < string.count - 4 ? maskedString.append("#") : maskedString.append(letter)
+    }
+    
+    return maskedString
+}
+
+maskify("Skippy")
+maskify("Nananananananananananananananana Batman!")
