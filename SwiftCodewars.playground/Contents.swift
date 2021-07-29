@@ -55,7 +55,7 @@ let squeezed = str.filter{ set.insert($0).inserted }
 print(squeezed)
 
 
-//Multiplication table for number
+///Multiplication table for number
 func multi_table(_ number: Int) -> String {
     var multiplicationTable = ""
     
@@ -68,8 +68,7 @@ func multi_table(_ number: Int) -> String {
 
 multi_table(5)
 
-/*
- An ordered sequence of numbers from 1 to N is given. One number might have deleted from it, then the remaining numbers were mixed. Find the number that was deleted.
+/**An ordered sequence of numbers from 1 to N is given. One number might have deleted from it, then the remaining numbers were mixed. Find the number that was deleted.
  
  Example:
  
@@ -78,8 +77,7 @@ multi_table(5)
  Your function should return the int 5.
  If no number was deleted from the array and no difference with it, your function should return the int 0.
  
- Note: N may be 1 or less (in the latter case, the first array will be []).
- */
+ Note: N may be 1 or less (in the latter case, the first array will be []).*/
 
 func findDeletedNumber(_ array: [Int], _ mixArray: [Int]) -> Int {
     let sortedMixedArr = mixArray.sorted(by: <)
@@ -99,7 +97,7 @@ func findDeletedNumber(_ array: [Int], _ mixArray: [Int]) -> Int {
 
 findDeletedNumber([1,2,3,4,5,6,7,8,9], [3,2,4,6,7,8,1,9])
 
-/*Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+/**Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
  
  Your task is to write a function maskify, which changes all but the last four characters into '#'.*/
 
@@ -116,3 +114,28 @@ func maskify(_ string:String) -> String {
 
 maskify("Skippy")
 maskify("Nananananananananananananananana Batman!")
+
+/**This time no story, no theory. The examples below show you how to write function accum:
+ 
+ Examples:
+ accum("abcd") -> "A-Bb-Ccc-Dddd"
+ accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+ accum("cwAt") -> "C-Ww-Aaa-Tttt"*/
+
+func accum(_ s: String) -> String {
+    
+    var accumString = ""
+    
+    for (index, character) in s.enumerated() {
+        for i in 0...index {
+            i == 0 ? accumString.append("\(character.uppercased())") : accumString.append("\(character.lowercased())")
+        }
+        index == s.count - 1 ? accumString.append("") : accumString.append("-")
+    }
+    
+    return accumString
+}
+
+accum("abcd")
+accum("RqaEzty")
+accum("cwAt")
