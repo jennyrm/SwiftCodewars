@@ -19,7 +19,7 @@ func numberOfVowelsAndConsonants(from string: String) -> (vowels: Int, consonant
     return (vowels: vowelsCount, consonants: consonantsCount)
 }
 
-numberOfVowelsAndConsonants(from: "J.ENNY")
+//numberOfVowelsAndConsonants(from: "J.ENNY")
 
 ///The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
 //func duplicateEncode(_ word: String) -> String {
@@ -52,7 +52,7 @@ let str = "bookkeeper"
 var set = Set<Character>()
 let squeezed = str.filter{ set.insert($0).inserted }
 
-print(squeezed)
+//print(squeezed)
 
 
 ///Multiplication table for number
@@ -66,7 +66,7 @@ func multi_table(_ number: Int) -> String {
     return multiplicationTable
 }
 
-multi_table(5)
+//multi_table(5)
 
 /**An ordered sequence of numbers from 1 to N is given. One number might have deleted from it, then the remaining numbers were mixed. Find the number that was deleted.
  
@@ -95,7 +95,7 @@ func findDeletedNumber(_ array: [Int], _ mixArray: [Int]) -> Int {
     return deletedNumber
 }
 
-findDeletedNumber([1,2,3,4,5,6,7,8,9], [3,2,4,6,7,8,1,9])
+//findDeletedNumber([1,2,3,4,5,6,7,8,9], [3,2,4,6,7,8,1,9])
 
 /**Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
  
@@ -112,8 +112,8 @@ func maskify(_ string:String) -> String {
     return maskedString
 }
 
-maskify("Skippy")
-maskify("Nananananananananananananananana Batman!")
+//maskify("Skippy")
+//maskify("Nananananananananananananananana Batman!")
 
 /**This time no story, no theory. The examples below show you how to write function accum:
  
@@ -136,6 +136,23 @@ func accum(_ s: String) -> String {
     return accumString
 }
 
-accum("abcd")
-accum("RqaEzty")
-accum("cwAt")
+//accum("abcd")
+//accum("RqaEzty")
+//accum("cwAt")
+
+/**Simple, given a string of words, return the length of the shortest word(s).
+ String will never be empty and you do not need to account for different data types.
+ */
+func find_short(_ str: String) -> Int {
+    var wordCountArray = [Int]()
+    
+    str.split(separator: " ").forEach { wordCountArray.append($0.count) }
+    
+    wordCountArray.sort(by: <)
+
+    return wordCountArray[0]
+}
+
+//find_short("bitcoin take over the world maybe who knows perhaps")
+//find_short("lets talk about javascript the best language")
+//find_short("i want to travel the world writing code one day")
