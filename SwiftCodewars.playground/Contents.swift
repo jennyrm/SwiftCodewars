@@ -181,9 +181,9 @@ func digitalRoot(of number: Int) -> Int {
 //942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
 //132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
 //493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
-
-digitalRoot(of: 16)
-digitalRoot(of: 942)
+//
+//digitalRoot(of: 16)
+//digitalRoot(of: 942)
 
 /**Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
  
@@ -196,6 +196,30 @@ func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
     
     return sortedArr[0] + sortedArr[1]
 }
+//
+//sumOfTwoSmallestIntegersIn([19, 5, 42, 2, 77])
+//sumOfTwoSmallestIntegersIn([10, 343445353, 3453445, 3453545353453])
 
-sumOfTwoSmallestIntegersIn([19, 5, 42, 2, 77])
-sumOfTwoSmallestIntegersIn([10, 343445353, 3453445, 3453545353453])
+/**Task
+Each day a plant is growing by upSpeed meters. Each night that plant's height decreases by downSpeed meters due to the lack of sun heat. Initially, plant is 0 meters tall. We plant the seed at the beginning of a day. We want to know when the height of the plant will reach a certain level.*/
+
+func growingPlant(_ upSpeed: Int, _ downSpeed: Int, _ desiredHeight: Int) -> Int {
+    var output = 0
+    var days = 1
+    
+    while output <= desiredHeight {
+        output += upSpeed
+        if output >= desiredHeight {
+            return days
+        } else {
+            output -= downSpeed
+            days += 1
+        }
+    }
+    
+    return days
+}
+
+growingPlant(100, 10, 910)
+growingPlant(10, 9, 4)
+growingPlant(5, 2, 6)
