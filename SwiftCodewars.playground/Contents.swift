@@ -38,7 +38,7 @@ func numberOfVowelsAndConsonants(from string: String) -> (vowels: Int, consonant
 
 func removeDuplicateLetters(from string: String) -> String {
     
-    let noDuplicatesDictionary = [String: Int]()
+    _ = [String: Int]()
     
     string.forEach {
         print($0)
@@ -220,6 +220,25 @@ func growingPlant(_ upSpeed: Int, _ downSpeed: Int, _ desiredHeight: Int) -> Int
     return days
 }
 
-growingPlant(100, 10, 910)
-growingPlant(10, 9, 4)
-growingPlant(5, 2, 6)
+//growingPlant(100, 10, 910)
+//growingPlant(10, 9, 4)
+//growingPlant(5, 2, 6)
+
+/**In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!*/
+
+func dontGiveMeFive(_ start: Int, _ end: Int) -> Int {
+
+    var numArray = [Int]()
+    for number in start...end {
+        if String(number).contains("5") {
+            continue
+        } else {
+            numArray.append(number)
+        }
+    }
+    
+    return numArray.count
+}
+
+dontGiveMeFive(1,9)
+dontGiveMeFive(4,17)
