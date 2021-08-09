@@ -240,5 +240,24 @@ func dontGiveMeFive(_ start: Int, _ end: Int) -> Int {
     return numArray.count
 }
 
-dontGiveMeFive(1,9)
-dontGiveMeFive(4,17)
+//dontGiveMeFive(1,9)
+//dontGiveMeFive(4,17)
+
+/**Your task is to write function findSum.
+Upto and including n, this function will return the sum of all multiples of 3 and 5.
+For example:*/
+
+func findSum(_ n: Int) -> Int {
+    var sum = 0
+    
+    for num in 0...n {
+        if num % 3 == 0 || num % 5 == 0 {
+            sum += num
+        }
+    }
+    
+    return sum
+}
+
+findSum(5)
+findSum(10)
