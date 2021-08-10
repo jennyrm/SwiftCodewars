@@ -276,4 +276,4 @@ func replaceAll<T: Equatable>(array: [T], old: T, new: T) -> [T] {
     return newArr
 }
 
-replaceAll(array: [1,2,2], old: 1, new: 2) // [2,2,2]
+//replaceAll(array: [1,2,2], old: 1, new: 2) // [2,2,2]
