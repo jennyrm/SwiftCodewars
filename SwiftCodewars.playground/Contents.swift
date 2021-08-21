@@ -292,3 +292,23 @@ func oddOne(_ arr: [Int]) -> Int? {
 //oddOne([2,16,98,10,13,78]) // => 4
 //oddOne([4,-8,98,-12,-7,90,100]) // => 4
 //oddOne([2,4,6,8]) // => nil
+
+/**
+ Create a function add(n)/Add(n) which returns a function that always adds n to any number
+ */
+
+func add(_ n: Int) -> ((Int) -> Int) {
+    func a(_ b: Int) -> Int { return n + b }
+    return a(_:)
+}
+
+//currying: add parameters to a fxn that adds to another fxn
+add(1)(3)
+
+//func add(_ n: Int) -> ((Int) -> Int) {
+//  return { return $0 + n }
+//}
+//
+//func add(_ n: Int) -> ((Int) -> Int) {
+//    return { n + $0 }
+//}
