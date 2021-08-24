@@ -308,7 +308,40 @@ add(1)(3)
 //func add(_ n: Int) -> ((Int) -> Int) {
 //  return { return $0 + n }
 //}
-//
+
 //func add(_ n: Int) -> ((Int) -> Int) {
 //    return { n + $0 }
 //}
+
+/**
+ Given the triangle of consecutive odd numbers:
+ */
+func rowSumOddNumbers(_ row: Int) -> Int {
+    var currentNumber = 1
+    var sum = 0
+    
+    for r in 1...row {
+        for _ in 1...r {
+            if r == row {
+                sum += currentNumber
+            }
+            currentNumber += 2
+        }
+    }
+    
+    return sum
+}
+
+rowSumOddNumbers(1) // 1
+rowSumOddNumbers(2) // 3 + 5 = 8
+
+/**
+ Determine the total number of digits in the integer (n>=0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits. Be careful to avoid overflows/underflows.
+ */
+func digits(num n: UInt64) -> Int {
+    return String(n).count
+}
+
+digits(num: 5)
+digits(num: 12345)
+digits(num: 9876543210)
