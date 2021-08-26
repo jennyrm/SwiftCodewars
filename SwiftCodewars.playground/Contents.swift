@@ -353,7 +353,24 @@ digits(num: 9876543210)
  */
 
 func flattenAndSort<T: Comparable>(_ arr: [[T]]) -> [T] {
-    return arr.flatMap({ $0 }).sorted()
+    return arr.flatMap({ return $0 }).sorted()
 }
 
 flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]])
+
+/**
+ Write a method that will search an array of strings for all strings that contain another string, ignoring capitalization. Then return an array of the found strings.
+
+ The method takes two parameters, the query string and the array of strings to search, and returns an array.
+
+ If the string isn't contained in any of the strings in the array, the method returns an array containing a single string: "Empty" (or Nothing in Haskell, or "None" in Python and C)
+ */
+
+func wordSearch(_ str:String, _ arr:[String]) -> [String] {
+    let result = arr.filter { $0.lowercased().contains(str.lowercased()) }
+    return result.isEmpty ? ["Empty"] : result
+}
+
+wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"])
+wordSearch("me", ["home", "milk", "Mercury", "fish"])
+wordSearch("abcd", ["za", "aB", "Abc", "zAB", "zbc"])
