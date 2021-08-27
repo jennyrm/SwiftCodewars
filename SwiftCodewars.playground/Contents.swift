@@ -338,6 +338,7 @@ rowSumOddNumbers(2) // 3 + 5 = 8
 /**
  Determine the total number of digits in the integer (n>=0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits. Be careful to avoid overflows/underflows.
  */
+
 func digits(num n: UInt64) -> Int {
     return String(n).count
 }
@@ -374,3 +375,44 @@ func wordSearch(_ str:String, _ arr:[String]) -> [String] {
 wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"])
 wordSearch("me", ["home", "milk", "Mercury", "fish"])
 wordSearch("abcd", ["za", "aB", "Abc", "zAB", "zbc"])
+
+/**
+ Your task is to add up letters to one letter.
+ The function will be given an Array<Character>, each one being a letter to add, and the function will return a Character.
+ */
+
+func addLetters(_ letters: [Character]) -> Character {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz"
+    
+    var result: Character = "z"
+    var indexArray = [Int]()
+    
+    for (index, letter) in alphabet.enumerated() {
+        if letters.contains(letter) {
+            indexArray.append(index + 1)
+        }
+    }
+    
+    var count = indexArray.enumerated().reduce(0) { $0 + $1.element }
+    print(count)
+    
+    if count > 26 {
+        count -= 26
+    }
+    
+    for (index, letter) in alphabet.enumerated() {
+        if index == count - 1 {
+            result = letter
+        }
+    }
+    
+    return result
+}
+
+addLetters(["a", "b", "c"])
+addLetters(["z"])
+addLetters(["a", "b"])
+addLetters(["c"])
+addLetters(["z", "z", "z", "a"])
+addLetters(["y", "c", "b"])
+addLetters([])
