@@ -416,3 +416,28 @@ addLetters(["c"])
 addLetters(["z", "z", "z", "a"])
 addLetters(["y", "c", "b"])
 addLetters([])
+
+/**
+ Write a function that takes two strings, A and B, and returns the length of the longest possible substring that can be formed from the concatenation of either A + B or B + A containing only characters that do not appear in both A and B.
+ */
+
+func longestSubstring(_ a: String, _ b: String) -> Int {
+    var dict = [Character : Int]()
+    
+    var abString = a + b
+    var baString = b + a
+    
+    abString.enumerated().forEach {
+        if dict[$0.element] == nil {
+            dict[$0.element] = $0.offset
+        } else {
+            dict.updateValue($0.offset + 1, forKey: $0.element)
+        }
+    }
+    
+    print(dict)
+
+    return 0
+}
+
+longestSubstring("piquancy", "refocusing")
