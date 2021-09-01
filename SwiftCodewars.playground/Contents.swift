@@ -409,13 +409,13 @@ func addLetters(_ letters: [Character]) -> Character {
     return result
 }
 
-addLetters(["a", "b", "c"])
-addLetters(["z"])
-addLetters(["a", "b"])
-addLetters(["c"])
-addLetters(["z", "z", "z", "a"])
-addLetters(["y", "c", "b"])
-addLetters([])
+//addLetters(["a", "b", "c"])
+//addLetters(["z"])
+//addLetters(["a", "b"])
+//addLetters(["c"])
+//addLetters(["z", "z", "z", "a"])
+//addLetters(["y", "c", "b"])
+//addLetters([])
 
 /**
  Write a function that takes two strings, A and B, and returns the length of the longest possible substring that can be formed from the concatenation of either A + B or B + A containing only characters that do not appear in both A and B.
@@ -435,7 +435,7 @@ func longestSubstring(_ a: String, _ b: String) -> Int {
         }
     }
     
-    print(dict)
+//    print(dict)
 
     return 0
 }
@@ -459,5 +459,19 @@ extension String {
     }
 }
 
-let stringToTest = "most trees are blue"
-stringToTest.toJadenCase()
+//let stringToTest = "most trees are blue"
+//stringToTest.toJadenCase()
+
+/**
+ We will call a natural number a "doubleton number" if it contains exactly two distinct digits. For example, 23, 35, 100, 12121 are doubleton numbers, and 123 and 9980 are not.
+
+ For a given natural number n (from 1 to 1 000 000), you need to find the next doubleton number. If n itself is a doubleton, return the next bigger than n.
+ */
+
+func doubleton(_ num: Int) -> Int {
+    return Set(String(num + 1).compactMap{ $0.wholeNumberValue }).count == 2 ? num + 1 : doubleton(num + 1)
+}
+
+//doubleton(120)
+//doubleton(1234)
+//doubleton(10)
