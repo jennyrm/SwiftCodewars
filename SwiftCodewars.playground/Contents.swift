@@ -475,3 +475,52 @@ func doubleton(_ num: Int) -> Int {
 //doubleton(120)
 //doubleton(1234)
 //doubleton(10)
+
+/**
+ Task
+ You'll have to translate a string to Pilot's alphabet (NATO phonetic alphabet).
+ Input:
+ If, you can read?
+
+ Output:
+ India Foxtrot , Yankee Oscar Uniform Charlie Alfa November Romeo Echo Alfa Delta ?
+
+ Note:
+ There are preloaded dictionary you can use, named NATO
+ The set of used punctuation is ,.!?.
+ Punctuation should be kept in your return string, but spaces should not.
+ Xray should not have a dash within.
+ Every word and punctuation mark should be seperated by a space ' '.
+ There should be no trailing whitespace
+ */
+
+func toNato(_ words: String) -> String {
+    let letters =
+        ["A": "Alfa",  "B": "Bravo",   "C": "Charlie",
+        "D": "Delta",  "E": "Echo",    "F": "Foxtrot",
+        "G": "Golf",   "H": "Hotel",   "I": "India",
+        "J": "Juliett","K": "Kilo",    "L": "Lima",
+        "M": "Mike",   "N": "November","O": "Oscar",
+        "P": "Papa",   "Q": "Quebec",  "R": "Romeo",
+        "S": "Sierra", "T": "Tango",   "U": "Uniform",
+        "V": "Victor", "W": "Whiskey", "X": "Xray",
+        "Y": "Yankee", "Z": "Zulu", "." : ".", "!" : "!", "?" : "?", "," : ",", "(" : "(", ")" : ")", "\"" : "\""]
+    
+    var natoTranslation = ""
+
+    words.uppercased().enumerated().forEach {
+        if (letters[String($0.element)] != nil) {
+            natoTranslation.append(letters[String($0.element)]!)
+            if ($0.offset != words.count - 1) {
+                natoTranslation.append(" ")
+            }
+        }
+    }
+    
+    return natoTranslation
+}
+
+toNato("If you can read")
+toNato("go for it!")
+
+
