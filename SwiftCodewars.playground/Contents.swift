@@ -48,9 +48,9 @@ func removeDuplicateLetters(from string: String) -> String {
 }
 
 
-let str = "bookkeeper"
-var set = Set<Character>()
-let squeezed = str.filter{ set.insert($0).inserted }
+//let str = "bookkeeper"
+//var set = Set<Character>()
+//let squeezed = str.filter{ set.insert($0).inserted }
 
 //print(squeezed)
 
@@ -303,7 +303,7 @@ func add(_ n: Int) -> ((Int) -> Int) {
 }
 
 //currying: add parameters to a fxn that adds to another fxn
-add(1)(3)
+//add(1)(3)
 
 //func add(_ n: Int) -> ((Int) -> Int) {
 //  return { return $0 + n }
@@ -332,8 +332,8 @@ func rowSumOddNumbers(_ row: Int) -> Int {
     return sum
 }
 
-rowSumOddNumbers(1) // 1
-rowSumOddNumbers(2) // 3 + 5 = 8
+//rowSumOddNumbers(1) // 1
+//rowSumOddNumbers(2) // 3 + 5 = 8
 
 /**
  Determine the total number of digits in the integer (n>=0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits. Be careful to avoid overflows/underflows.
@@ -343,9 +343,9 @@ func digits(num n: UInt64) -> Int {
     return String(n).count
 }
 
-digits(num: 0)
-digits(num: 12345)
-digits(num: 9876543210)
+//digits(num: 0)
+//digits(num: 12345)
+//digits(num: 9876543210)
 
 /**
  Given a two-dimensional array of integers, return the flattened version of the array with all the integers in the sorted (ascending) order.
@@ -357,7 +357,7 @@ func flattenAndSort<T: Comparable>(_ arr: [[T]]) -> [T] {
     return arr.flatMap({ return $0 }).sorted()
 }
 
-flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]])
+//flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]])
 
 /**
  Write a method that will search an array of strings for all strings that contain another string, ignoring capitalization. Then return an array of the found strings.
@@ -372,9 +372,9 @@ func wordSearch(_ str:String, _ arr:[String]) -> [String] {
     return result.isEmpty ? ["Empty"] : result
 }
 
-wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"])
-wordSearch("me", ["home", "milk", "Mercury", "fish"])
-wordSearch("abcd", ["za", "aB", "Abc", "zAB", "zbc"])
+//wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"])
+//wordSearch("me", ["home", "milk", "Mercury", "fish"])
+//wordSearch("abcd", ["za", "aB", "Abc", "zAB", "zbc"])
 
 /**
  Your task is to add up letters to one letter.
@@ -520,7 +520,23 @@ func toNato(_ words: String) -> String {
     return natoTranslation
 }
 
-toNato("If you can read")
-toNato("go for it!")
+//toNato("If you can read")
+//toNato("go for it!")
 
+/**
+ Task
+ King Arthur and his knights are having a New Years party. Last year Lancelot was jealous of Arthur, because Arthur had a date and Lancelot did not, and they started a duel.
 
+ To prevent this from happening again, Arthur wants to make sure that there are at least as many women as men at this year's party. He gave you a list of integers of all the party goers.
+
+ Arthur needs you to return true if he needs to invite more women or false if he is all set.
+ */
+
+func inviteMoreWomen(_ arr: [Int]) -> Bool {
+    return arr.reduce(0, +) >= 1
+}
+//
+//inviteMoreWomen([1, -1, 1])
+//inviteMoreWomen([-1, -1, -1])
+//inviteMoreWomen([1, -1])
+//inviteMoreWomen([1, 1, 1])
