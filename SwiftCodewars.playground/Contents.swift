@@ -540,3 +540,18 @@ func inviteMoreWomen(_ arr: [Int]) -> Bool {
 //inviteMoreWomen([-1, -1, -1])
 //inviteMoreWomen([1, -1])
 //inviteMoreWomen([1, 1, 1])
+
+/**
+ Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed (like the name of this kata).
+
+ Strings passed in will consist of only letters and spaces.
+ Spaces will be included only when more than one word is present.
+ */
+
+func spinWords(in sentence: String) -> String {
+    return sentence.components(separatedBy: " ").map { $0.count >= 5 ? String($0.reversed()) : $0 }.joined(separator: " ")
+}
+
+spinWords(in: "Hey fellow warriors")
+spinWords(in: "This is a test")
+spinWords(in: "This is another test")
