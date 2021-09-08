@@ -552,6 +552,34 @@ func spinWords(in sentence: String) -> String {
     return sentence.components(separatedBy: " ").map { $0.count >= 5 ? String($0.reversed()) : $0 }.joined(separator: " ")
 }
 
-spinWords(in: "Hey fellow warriors")
-spinWords(in: "This is a test")
-spinWords(in: "This is another test")
+//spinWords(in: "Hey fellow warriors")
+//spinWords(in: "This is a test")
+//spinWords(in: "This is another test")
+
+/**
+ There is an array with some numbers. All numbers are equal except for one. Try to find it!
+ It’s guaranteed that array contains at least 3 numbers.
+ The tests contain some very huge arrays, so think about performance.
+ */
+
+//func findUniq(_ arr: [Double]) -> Double {
+//
+//}
+
+//findUniq([ 1, 1, 1, 2, 1, 1 ])
+//findUniq([1.0, 0.0, 0.0])
+//findUniq([ 3, 10, 3, 3, 3 ])
+//findUniq([ 0, 0, 0.55, 0, 0 ])
+
+/**
+ Given two arrays a and b write a function comp(a, b) (orcompSame(a, b)) that checks whether the two arrays have the "same" elements, with the same multiplicities. "Same" means, here, that the elements in b are the elements in a squared, regardless of the order.
+ */
+
+func comp(_ a: [Int], _ b: [Int]) -> Bool {
+    return a.map { pow(Double($0), 2) }.sorted() == b.map { Double($0) }.sorted()
+}
+
+var a1 = [121, 144, 19, 161, 19, 144, 19, 11];
+var a2 = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
+
+//comp(a1, a2)
