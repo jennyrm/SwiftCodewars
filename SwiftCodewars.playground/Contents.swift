@@ -424,16 +424,16 @@ func addLetters(_ letters: [Character]) -> Character {
 func longestSubstring(_ a: String, _ b: String) -> Int {
     var dict = [Character : Int]()
     
-    var abString = a + b
-    var baString = b + a
+//    var abString = a + b
+//    var baString = b + a
     
-    abString.enumerated().forEach {
-        if dict[$0.element] == nil {
-            dict[$0.element] = $0.offset
-        } else {
-            dict.updateValue($0.offset + 1, forKey: $0.element)
-        }
-    }
+//    abString.enumerated().forEach {
+//        if dict[$0.element] == nil {
+//            dict[$0.element] = $0.offset
+//        } else {
+//            dict.updateValue($0.offset + 1, forKey: $0.element)
+//        }
+//    }
     
 //    print(dict)
 
@@ -579,7 +579,90 @@ func comp(_ a: [Int], _ b: [Int]) -> Bool {
     return a.map { pow(Double($0), 2) }.sorted() == b.map { Double($0) }.sorted()
 }
 
-var a1 = [121, 144, 19, 161, 19, 144, 19, 11];
-var a2 = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
+//var a1 = [121, 144, 19, 161, 19, 144, 19, 11];
+//var a2 = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
+//
+//comp(a1, a2)
 
-comp(a1, a2)
+/**You are given an array(list) strarr of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.*/
+
+//func longestConsec(_ strarr: [String], _ k: Int) -> String {
+//    var longestString = ""
+//
+//    let filteredArr = strarr.filter {
+//        if ($0 + strarr[k]).count > longestString.count {
+//            longestString = $0 + strarr[k]
+//        }
+//    }
+//    print(filteredArr)
+//
+////    for (i, ielem) in strarr.enumerated() {
+////        for (j, jelem) in strarr.enumerated() {
+////            print(strarr[i] + strarr[j + 1])
+////        }
+////    }
+//
+//    return ""
+//}
+
+//longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2)
+//longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1)
+//longestConsec([], 3)
+//longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2)
+
+/**
+ Some new cashiers started to work at your restaurant.
+ They are good at taking orders, but they don't know how to capitalize words, or use a space bar!
+ All the orders they create look something like this:
+ "milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"
+ The kitchen staff are threatening to quit, because of how difficult it is to read the orders.
+ Their preference is to get the orders as a nice clean string with spaces and capitals like so:
+ "Burger Fries Chicken Pizza Pizza Pizza Sandwich Milkshake Milkshake Coke"
+ The kitchen staff expect the items to be in the same order as they appear in the menu.
+ The menu items are fairly simple, there is no overlap in the names of the items:
+ 1. Burger
+ 2. Fries
+ 3. Chicken
+ 4. Pizza
+ 5. Sandwich
+ 6. Onionrings
+ 7. Milkshake
+ 8. Coke
+ */
+
+func getOrder(_ input: String) -> String {
+    var placeholderString = ""
+    var rawValueArray = [Int]()
+    var result = ""
+    
+    enum menu: Int {
+        case Burger = 0, Fries, Chicken, Pizza, Sandwich, Onionrings, Milkshake, Coke
+        
+        static let allValues = [Burger, Fries, Chicken, Pizza, Sandwich, Onionrings, Milkshake, Coke]
+    }
+    
+    for letter in input {
+        placeholderString.append(letter)
+        for item in menu.allValues {
+            if placeholderString == "\(item)".lowercased() {
+                rawValueArray.append(item.rawValue)
+                placeholderString = ""
+            }
+        }
+    }
+    
+    print(rawValueArray.sorted())
+    
+    for index in rawValueArray.sorted() {
+        result.append("\(menu.allValues[index])" + " ")
+    }
+    
+    if !result.isEmpty {
+        result.removeLast()
+    }
+    
+    return result
+}
+
+getOrder("milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza")
+getOrder("pizzachickenfriesburgercokemilkshakefriessandwich")
