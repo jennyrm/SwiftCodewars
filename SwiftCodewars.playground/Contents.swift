@@ -149,7 +149,7 @@ func find_short(_ str: String) -> Int {
     str.split(separator: " ").forEach { wordCountArray.append($0.count) }
     
     wordCountArray.sort(by: <)
-
+    
     return wordCountArray[0]
 }
 
@@ -158,8 +158,8 @@ func find_short(_ str: String) -> Int {
 //find_short("i want to travel the world writing code one day")
 
 /**Digital root is the recursive sum of all the digits in a number.
-
-Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.*/
+ 
+ Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.*/
 
 //func digitalRoot(of number: Int) -> Int {
 //    let arrayOfDigits = String(number).compactMap { $0.wholeNumberValue }
@@ -173,10 +173,10 @@ Given n, take the sum of the digits of n. If that value has more than one digit,
 
 func digitalRoot(of number: Int) -> Int {
     let reducedNumber = String(number).compactMap { $0.wholeNumberValue }.reduce(0, +)
-
+    
     return reducedNumber > 9 ? digitalRoot(of: reducedNumber) : reducedNumber
 }
- 
+
 //16  -->  1 + 6 = 7
 //942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
 //132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
@@ -188,7 +188,7 @@ func digitalRoot(of number: Int) -> Int {
 /**Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
  
  For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
-
+ 
  [10, 343445353, 3453445, 3453545353453] should return 3453455.*/
 
 func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
@@ -201,7 +201,7 @@ func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
 //sumOfTwoSmallestIntegersIn([10, 343445353, 3453445, 3453545353453])
 
 /**Task
-Each day a plant is growing by upSpeed meters. Each night that plant's height decreases by downSpeed meters due to the lack of sun heat. Initially, plant is 0 meters tall. We plant the seed at the beginning of a day. We want to know when the height of the plant will reach a certain level.*/
+ Each day a plant is growing by upSpeed meters. Each night that plant's height decreases by downSpeed meters due to the lack of sun heat. Initially, plant is 0 meters tall. We plant the seed at the beginning of a day. We want to know when the height of the plant will reach a certain level.*/
 
 func growingPlant(_ upSpeed: Int, _ downSpeed: Int, _ desiredHeight: Int) -> Int {
     var output = 0
@@ -227,7 +227,7 @@ func growingPlant(_ upSpeed: Int, _ downSpeed: Int, _ desiredHeight: Int) -> Int
 /**In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!*/
 
 func dontGiveMeFive(_ start: Int, _ end: Int) -> Int {
-
+    
     var numArray = [Int]()
     for number in start...end {
         if String(number).contains("5") {
@@ -244,8 +244,8 @@ func dontGiveMeFive(_ start: Int, _ end: Int) -> Int {
 //dontGiveMeFive(4,17)
 
 /**Your task is to write function findSum.
-Upto and including n, this function will return the sum of all multiples of 3 and 5.
-For example:*/
+ Upto and including n, this function will return the sum of all multiples of 3 and 5.
+ For example:*/
 
 func findSum(_ n: Int) -> Int {
     var sum = 0
@@ -263,8 +263,8 @@ func findSum(_ n: Int) -> Int {
 //findSum(10)
 
 /**Write function replaceAll (Python: replace_all) that will replace all occurrences of an item with another.
-Python / JavaScript: The function has to work for strings and lists.
-Example: replaceAll [1,2,2] 1 2 -> in list [1,2,2] we replace 1 with 2 to get new list [2,2,2]*/
+ Python / JavaScript: The function has to work for strings and lists.
+ Example: replaceAll [1,2,2] 1 2 -> in list [1,2,2] we replace 1 with 2 to get new list [2,2,2]*/
 
 func replaceAll<T: Equatable>(array: [T], old: T, new: T) -> [T] {
     var newArr: [T] = []
@@ -361,9 +361,9 @@ func flattenAndSort<T: Comparable>(_ arr: [[T]]) -> [T] {
 
 /**
  Write a method that will search an array of strings for all strings that contain another string, ignoring capitalization. Then return an array of the found strings.
-
+ 
  The method takes two parameters, the query string and the array of strings to search, and returns an array.
-
+ 
  If the string isn't contained in any of the strings in the array, the method returns an array containing a single string: "Empty" (or Nothing in Haskell, or "None" in Python and C)
  */
 
@@ -424,19 +424,19 @@ func addLetters(_ letters: [Character]) -> Character {
 func longestSubstring(_ a: String, _ b: String) -> Int {
     var dict = [Character : Int]()
     
-//    var abString = a + b
-//    var baString = b + a
+    //    var abString = a + b
+    //    var baString = b + a
     
-//    abString.enumerated().forEach {
-//        if dict[$0.element] == nil {
-//            dict[$0.element] = $0.offset
-//        } else {
-//            dict.updateValue($0.offset + 1, forKey: $0.element)
-//        }
-//    }
+    //    abString.enumerated().forEach {
+    //        if dict[$0.element] == nil {
+    //            dict[$0.element] = $0.offset
+    //        } else {
+    //            dict.updateValue($0.offset + 1, forKey: $0.element)
+    //        }
+    //    }
     
-//    print(dict)
-
+    //    print(dict)
+    
     return 0
 }
 
@@ -444,11 +444,11 @@ func longestSubstring(_ a: String, _ b: String) -> Int {
 
 /**
  Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013). Jaden is also known for some of his philosophy that he delivers via Twitter. When writing on Twitter, he is known for almost always capitalizing every word. For simplicity, you'll have to capitalize each word, check out how contractions are expected to be in the example below.
-
+ 
  Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
-
+ 
  Example:
-
+ 
  Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
  Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
  */
@@ -464,7 +464,7 @@ extension String {
 
 /**
  We will call a natural number a "doubleton number" if it contains exactly two distinct digits. For example, 23, 35, 100, 12121 are doubleton numbers, and 123 and 9980 are not.
-
+ 
  For a given natural number n (from 1 to 1 000 000), you need to find the next doubleton number. If n itself is a doubleton, return the next bigger than n.
  */
 
@@ -481,10 +481,10 @@ func doubleton(_ num: Int) -> Int {
  You'll have to translate a string to Pilot's alphabet (NATO phonetic alphabet).
  Input:
  If, you can read?
-
+ 
  Output:
  India Foxtrot , Yankee Oscar Uniform Charlie Alfa November Romeo Echo Alfa Delta ?
-
+ 
  Note:
  There are preloaded dictionary you can use, named NATO
  The set of used punctuation is ,.!?.
@@ -497,17 +497,17 @@ func doubleton(_ num: Int) -> Int {
 func toNato(_ words: String) -> String {
     let letters =
         ["A": "Alfa",  "B": "Bravo",   "C": "Charlie",
-        "D": "Delta",  "E": "Echo",    "F": "Foxtrot",
-        "G": "Golf",   "H": "Hotel",   "I": "India",
-        "J": "Juliett","K": "Kilo",    "L": "Lima",
-        "M": "Mike",   "N": "November","O": "Oscar",
-        "P": "Papa",   "Q": "Quebec",  "R": "Romeo",
-        "S": "Sierra", "T": "Tango",   "U": "Uniform",
-        "V": "Victor", "W": "Whiskey", "X": "Xray",
-        "Y": "Yankee", "Z": "Zulu", "." : ".", "!" : "!", "?" : "?", "," : ",", "(" : "(", ")" : ")", "\"" : "\""]
+         "D": "Delta",  "E": "Echo",    "F": "Foxtrot",
+         "G": "Golf",   "H": "Hotel",   "I": "India",
+         "J": "Juliett","K": "Kilo",    "L": "Lima",
+         "M": "Mike",   "N": "November","O": "Oscar",
+         "P": "Papa",   "Q": "Quebec",  "R": "Romeo",
+         "S": "Sierra", "T": "Tango",   "U": "Uniform",
+         "V": "Victor", "W": "Whiskey", "X": "Xray",
+         "Y": "Yankee", "Z": "Zulu", "." : ".", "!" : "!", "?" : "?", "," : ",", "(" : "(", ")" : ")", "\"" : "\""]
     
     var natoTranslation = ""
-
+    
     words.uppercased().enumerated().forEach {
         if (letters[String($0.element)] != nil) {
             natoTranslation.append(letters[String($0.element)]!)
@@ -526,9 +526,9 @@ func toNato(_ words: String) -> String {
 /**
  Task
  King Arthur and his knights are having a New Years party. Last year Lancelot was jealous of Arthur, because Arthur had a date and Lancelot did not, and they started a duel.
-
+ 
  To prevent this from happening again, Arthur wants to make sure that there are at least as many women as men at this year's party. He gave you a list of integers of all the party goers.
-
+ 
  Arthur needs you to return true if he needs to invite more women or false if he is all set.
  */
 
@@ -543,7 +543,7 @@ func inviteMoreWomen(_ arr: [Int]) -> Bool {
 
 /**
  Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed (like the name of this kata).
-
+ 
  Strings passed in will consist of only letters and spaces.
  Spaces will be included only when more than one word is present.
  */
@@ -664,5 +664,37 @@ func getOrder(_ input: String) -> String {
     return result
 }
 
-getOrder("milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza")
-getOrder("pizzachickenfriesburgercokemilkshakefriessandwich")
+//getOrder("milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza")
+//getOrder("pizzachickenfriesburgercokemilkshakefriessandwich")
+
+/**
+ Jamie is a programmer, and James' girlfriend. She likes diamonds, and wants a diamond string from James. Since James doesn't know how to make this happen, he needs your help.
+ 
+ Task
+ You need to return a string that looks like a diamond shape when printed on the screen, using asterisk (*) characters. Trailing spaces should be removed, and every line must be terminated with a newline character (\n).
+ 
+ Return null/nil/None/... if the input is an even number or negative, as it is not possible to print a diamond of even or negative size.
+ */
+
+func diamond(_ size: Int) -> String {
+    var diamondString = ""
+    
+    if size % 2 == 0 || size < 0 {
+        return ""
+    }
+    
+    for i in stride(from: 0, to: size, by: 1) {
+        if i == (size - 2) {
+            diamondString.append("***\n")
+        } else {
+            diamondString.append(" *\n")
+        }
+    }
+    
+    diamondString.removeLast()
+    
+    print(diamondString)
+    return diamondString
+}
+
+//diamond(3)
