@@ -422,7 +422,7 @@ func addLetters(_ letters: [Character]) -> Character {
  */
 
 func longestSubstring(_ a: String, _ b: String) -> Int {
-    var dict = [Character : Int]()
+//    var dict = [Character : Int]()
     
     //    var abString = a + b
     //    var baString = b + a
@@ -698,3 +698,20 @@ func diamond(_ size: Int) -> String {
 }
 
 //diamond(3)
+
+/**
+ Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+ */
+
+func persistence(for num: Int) -> Int {
+    let value = persistence(for: String(num).compactMap { $0.wholeNumberValue }.reduce(1, *))
+    print(value)
+ 
+    return 0
+}
+
+persistence(for: 39)
+persistence(for: 999)
+persistence(for: 4)
+//persistence(for: 18)
+//persistence(for: 28)
