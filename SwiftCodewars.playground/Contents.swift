@@ -710,8 +710,19 @@ func persistence(for num: Int) -> Int {
     return 0
 }
 
-persistence(for: 39)
-persistence(for: 999)
-persistence(for: 4)
+//persistence(for: 39)
+//persistence(for: 999)
+//persistence(for: 4)
 //persistence(for: 18)
 //persistence(for: 28)
+
+
+/**
+ Make a function that will return a greeting statement that uses an input; your program should return, "Hello, <name> how are you doing today?".
+
+ [Make sure you type the exact thing I wrote or the program may not execute properly]
+ */
+
+func greet(_ name: String) -> String {
+    return "Hello, \(name) how are you doing today?"
+}
