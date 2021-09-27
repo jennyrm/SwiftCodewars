@@ -726,3 +726,33 @@ func persistence(for num: Int) -> Int {
 func greet(_ name: String) -> String {
     return "Hello, \(name) how are you doing today?"
 }
+
+/**
+ write me a function stringy that takes a size and returns a string of alternating '1s' and '0s'.
+
+ the string should start with a 1.
+
+ a string with size 6 should return :'101010'.
+
+ with size 4 should return : '1010'.
+
+ with size 12 should return : '101010101010'.
+
+ The size will always be positive and will only use whole numbers.
+ */
+
+func stringy(_ size: Int) -> String {
+    var binaryString = ""
+    
+    for num in 0..<size {
+        if num % 2 == 0  {
+            binaryString.append("1")
+        } else {
+            binaryString.append("0")
+        }
+    }
+    
+    return binaryString
+}
+
+stringy(3)
