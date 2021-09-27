@@ -755,4 +755,15 @@ func stringy(_ size: Int) -> String {
     return binaryString
 }
 
-stringy(3)
+//stringy(3)
+
+/**
+Given the number (n), populate an array with all numbers up to and including that number, but excluding zero.
+ */
+
+func monkeyCount(_ n: Int) -> [Int] {
+    return (1...n).map { $0 }
+}
+
+//monkeyCount(10)
+//monkeyCount(1)
