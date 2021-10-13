@@ -767,3 +767,54 @@ func monkeyCount(_ n: Int) -> [Int] {
 
 //monkeyCount(10)
 //monkeyCount(1)
+
+/**
+ A hero is on his way to the castle to complete his mission. However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+
+ Return True if yes, False otherwise :)
+ */
+
+func hero(bullets: Int, dragons: Int) -> Bool {
+    return
+    false
+}
+
+/**
+ You are given a string of n lines, each substring being n characters long: For example:
+
+ s = "abcd\nefgh\nijkl\nmnop"
+
+ We will study some transformations of this square of strings.
+
+ Vertical mirror: vert_mirror (or vertMirror or vert-mirror)
+ vert_mirror(s) => "dcba\nhgfe\nlkji\nponm"
+ Horizontal mirror: hor_mirror (or horMirror or hor-mirror)
+ hor_mirror(s) => "mnop\nijkl\nefgh\nabcd"
+ or printed:
+
+ vertical mirror   |horizontal mirror
+ abcd --> dcba     |abcd --> mnop
+ efgh     hgfe     |efgh     ijkl
+ ijkl     lkji     |ijkl     efgh
+ mnop     ponm     |mnop     abcd
+ Task:
+ Write these two functions
+ and
+
+ high-order function oper(fct, s) where
+
+ fct is the function of one variable f to apply to the string s (fct will be one of vertMirror, horMirror)
+
+ Examples:
+ */
+
+func horMirror(_ s: String) -> String {
+    // your code
+}
+func vertMirror(_ s: String) -> String {
+    // your code
+}
+// replace the dots with function parameter
+func oper(..., _ s: String) -> String {
+    // your code
+} 
