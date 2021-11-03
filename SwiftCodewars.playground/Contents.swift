@@ -773,11 +773,10 @@ func monkeyCount(_ n: Int) -> [Int] {
 
  Return True if yes, False otherwise :)
  */
-
-func hero(bullets: Int, dragons: Int) -> Bool {
-    return
-    false
-}
+//
+//func hero(bullets: Int, dragons: Int) -> Bool {
+//    
+//}
 
 /**
  You are given a string of n lines, each substring being n characters long: For example:
@@ -808,13 +807,52 @@ func hero(bullets: Int, dragons: Int) -> Bool {
  Examples:
  */
 
-func horMirror(_ s: String) -> String {
-    // your code
-}
-func vertMirror(_ s: String) -> String {
-    // your code
-}
+//func horMirror(_ s: String) -> String {
+//    // your code
+//}
+//func vertMirror(_ s: String) -> String {
+//    // your code
+//}
 // replace the dots with function parameter
-func oper(..., _ s: String) -> String {
-    // your code
-} 
+//func oper(..., _ s: String) -> String {
+//    // your code
+//}
+
+/**
+ 1) Find the 2nd largest and 2nd smallest number in two arrays of numbers combined
+I.e. - [10,5,7,2,4,1,24] & [8,23,29,25,40,0,24] -> 2nd Largest : 29 , 2nd Smallest: 1
+*/
+
+func findSecondNumber(in array1: [Int], and array2: [Int]) -> Int {
+    return (array1 + array2).sorted().index(after: 0)
+}
+
+findSecondNumber(in: [10,5,7,2,4,1,24], and: [8,23,29,25,40,0,24])
+ 
+/**
+2) Program to print elements/character of an string present on odd position, along with the count of those elements/characters in the entire string
+i.e abbloseckc - b:2,l:1,s:1,c:2
+*/
+
+func oddPositionAndCount(of string: String) -> [Character : Int] {
+    var dict = [Character : Int]()
+    
+    string.enumerated().forEach {
+        if $0.offset % 2 == 1, dict[$0.element] == nil {
+            dict[$0.element] = 1
+        } 
+    }
+    
+    return dict
+}
+
+oddPositionAndCount(of: "abbloseckc")
+
+/**
+ 3) Write a program to find the index of a value in a sorted array. If the value does not find return the index where it would be if it were inserted in order.
+ Example:
+ [1, 2, 4, 5, 6] 5(target) -> 3(index)
+ [1, 2, 4, 5, 6] 0(target) -> 0(index)
+ [1, 2, 4, 5, 6] 7(target) -> 5(index)
+*/
+
