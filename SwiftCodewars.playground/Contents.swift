@@ -1,6 +1,8 @@
 import UIKit
 
-///Given a string (written in English), return a tuple containing the number of vowels and consonants.(edited)
+/**
+ Given a string (written in English), return a tuple containing the number of vowels and consonants.(edited)
+*/
 func numberOfVowelsAndConsonants(from string: String) -> (vowels: Int, consonants: Int) {
     var vowelsCount = 0
     var consonantsCount = 0
@@ -16,69 +18,67 @@ func numberOfVowelsAndConsonants(from string: String) -> (vowels: Int, consonant
         }
     }
     
-    return (vowels: vowelsCount, consonants: consonantsCount)
+    return (vowelsCount, consonantsCount)
 }
 
 //numberOfVowelsAndConsonants(from: "J.ENNY")
 
-///The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
-//func duplicateEncode(_ word: String) -> String {
-//    var convertedString = ""
-////    word.filter {
-//        if $0 != $1 {
-//            convertedString.append("(")
-//        } else {
-//            convertedString.append(")")
-//        }
-//    }
-//    return convertedString
-//}
-
-//Write a function that takes in a String, and returns that string with all duplicate letters removed. Parameter and return should be String
-
-func removeDuplicateLetters(from string: String) -> String {
+/**
+ The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+*/
+func duplicateEncode(_ word: String) -> String {
+    var dict = [Character : Int](), word = word.lowercased()
     
-    _ = [String: Int]()
+    word.forEach { dict[$0, default: 0] += 1 }
     
-    string.forEach {
-        print($0)
-    }
-    
-    return ""
+    return word.map { dict[$0]! > 1 ? ")" : "(" }.joined()
 }
 
+//duplicateEncode("dinner")
+//duplicateEncode("recede")
 
-//let str = "bookkeeper"
-//var set = Set<Character>()
-//let squeezed = str.filter{ set.insert($0).inserted }
+/**
+ Write a function that takes in a String, and returns that string with all duplicate letters removed. Parameter and return should be String
+*/
+func removeDuplicateLetters(from string: String) -> String {
+    return String(Set(string))
+}
 
-//print(squeezed)
+//removeDuplicateLetters(from: "Jenny")
 
+//func removeDuplicateLettersInOrder(from string: String)  {
+//    let a = NSOrderedSet(array: Array(string)).reduce("", +)
+//}
+//
+//removeDuplicateLettersInOrder(from: "Jenny")
 
-///Multiplication table for number
-func multi_table(_ number: Int) -> String {
+/**
+ Multiplication table for number
+*/
+func multi_table(_ number: Int, range: Int) -> String {
     var multiplicationTable = ""
     
-    for num in 1...10 {
-        multiplicationTable.append("\(num) * \(number) = \(num * number)\(num != 10 ? "\n" : "")")
+    for num in 1...range {
+        multiplicationTable.append("\(num) * \(number) = \(num * number)\(num != range ? "\n" : "")")
     }
     
+    print(multiplicationTable)
     return multiplicationTable
 }
 
-//multi_table(5)
+//multi_table(5, range: 20)
 
-/**An ordered sequence of numbers from 1 to N is given. One number might have deleted from it, then the remaining numbers were mixed. Find the number that was deleted.
+/**
+ An ordered sequence of numbers from 1 to N is given. One number might have deleted from it, then the remaining numbers were mixed. Find the number that was deleted.
  
  Example:
- 
  The starting array sequence is [1,2,3,4,5,6,7,8,9]
  The mixed array with one deleted number is [3,2,4,6,7,8,1,9]
  Your function should return the int 5.
  If no number was deleted from the array and no difference with it, your function should return the int 0.
  
- Note: N may be 1 or less (in the latter case, the first array will be []).*/
-
+ Note: N may be 1 or less (in the latter case, the first array will be []).
+*/
 func findDeletedNumber(_ array: [Int], _ mixArray: [Int]) -> Int {
     let sortedMixedArr = mixArray.sorted(by: <)
     var deletedNumber = 0
@@ -97,12 +97,12 @@ func findDeletedNumber(_ array: [Int], _ mixArray: [Int]) -> Int {
 
 //findDeletedNumber([1,2,3,4,5,6,7,8,9], [3,2,4,6,7,8,1,9])
 
-/**Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+/**
+ Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
  
- Your task is to write a function maskify, which changes all but the last four characters into '#'.*/
-
-func maskify(_ string:String) -> String {
-    
+ Your task is to write a function maskify, which changes all but the last four characters into '#'.
+*/
+func maskify(_ string: String) -> String {
     var maskedString = ""
     
     for (index, letter) in string.enumerated() {
@@ -115,15 +115,14 @@ func maskify(_ string:String) -> String {
 //maskify("Skippy")
 //maskify("Nananananananananananananananana Batman!")
 
-/**This time no story, no theory. The examples below show you how to write function accum:
- 
+/**
+ This time no story, no theory. The examples below show you how to write function accum:
  Examples:
  accum("abcd") -> "A-Bb-Ccc-Dddd"
  accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
- accum("cwAt") -> "C-Ww-Aaa-Tttt"*/
-
+ accum("cwAt") -> "C-Ww-Aaa-Tttt"
+ */
 func accum(_ s: String) -> String {
-    
     var accumString = ""
     
     for (index, character) in s.enumerated() {
@@ -140,27 +139,31 @@ func accum(_ s: String) -> String {
 //accum("RqaEzty")
 //accum("cwAt")
 
-/**Simple, given a string of words, return the length of the shortest word(s).
+/**
+ Simple, given a string of words, return the length of the shortest word(s).
  String will never be empty and you do not need to account for different data types.
- */
+*/
 func find_short(_ str: String) -> Int {
-    var wordCountArray = [Int]()
+    //    var wordCountArray = [Int]()
+    //
+    //    str.split(separator: " ").forEach { wordCountArray.append($0.count) }
+    //
+    //    wordCountArray.sorted()
     
-    str.split(separator: " ").forEach { wordCountArray.append($0.count) }
+    //    return wordCountArray[0]
     
-    wordCountArray.sort(by: <)
-    
-    return wordCountArray[0]
+    return str.split(separator: " ").map { $0 }.map { $0.count }.sorted().first!
 }
 
 //find_short("bitcoin take over the world maybe who knows perhaps")
 //find_short("lets talk about javascript the best language")
 //find_short("i want to travel the world writing code one day")
 
-/**Digital root is the recursive sum of all the digits in a number.
+/**
+ Digital root is the recursive sum of all the digits in a number.
  
- Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.*/
-
+ Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.
+*/
 //func digitalRoot(of number: Int) -> Int {
 //    let arrayOfDigits = String(number).compactMap { $0.wholeNumberValue }
 //
@@ -170,7 +173,6 @@ func find_short(_ str: String) -> Int {
 //
 //    return reducedNumber
 //}
-
 func digitalRoot(of number: Int) -> Int {
     let reducedNumber = String(number).compactMap { $0.wholeNumberValue }.reduce(0, +)
     
@@ -181,28 +183,30 @@ func digitalRoot(of number: Int) -> Int {
 //942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
 //132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
 //493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
-//
+
 //digitalRoot(of: 16)
 //digitalRoot(of: 942)
 
-/**Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+/**
+ Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
  
  For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
  
- [10, 343445353, 3453445, 3453545353453] should return 3453455.*/
-
+ [10, 343445353, 3453445, 3453545353453] should return 3453455.
+*/
 func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
     let sortedArr = array.sorted()
     
     return sortedArr[0] + sortedArr[1]
 }
-//
+
 //sumOfTwoSmallestIntegersIn([19, 5, 42, 2, 77])
 //sumOfTwoSmallestIntegersIn([10, 343445353, 3453445, 3453545353453])
 
-/**Task
- Each day a plant is growing by upSpeed meters. Each night that plant's height decreases by downSpeed meters due to the lack of sun heat. Initially, plant is 0 meters tall. We plant the seed at the beginning of a day. We want to know when the height of the plant will reach a certain level.*/
-
+/**
+ Task
+ Each day a plant is growing by upSpeed meters. Each night that plant's height decreases by downSpeed meters due to the lack of sun heat. Initially, plant is 0 meters tall. We plant the seed at the beginning of a day. We want to know when the height of the plant will reach a certain level.
+*/
 func growingPlant(_ upSpeed: Int, _ downSpeed: Int, _ desiredHeight: Int) -> Int {
     var output = 0
     var days = 1
@@ -224,29 +228,35 @@ func growingPlant(_ upSpeed: Int, _ downSpeed: Int, _ desiredHeight: Int) -> Int
 //growingPlant(10, 9, 4)
 //growingPlant(5, 2, 6)
 
-/**In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!*/
+/**
+ In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!
+*/
+//func dontGiveMeFive(_ start: Int, _ end: Int) -> Int {
+//    var numArray = [Int]()
+//
+//    for number in start...end {
+//        if String(number).contains("5") {
+//            continue
+//        } else {
+//            numArray.append(number)
+//        }
+//    }
+//
+//    return numArray.count
+//}
 
 func dontGiveMeFive(_ start: Int, _ end: Int) -> Int {
-    
-    var numArray = [Int]()
-    for number in start...end {
-        if String(number).contains("5") {
-            continue
-        } else {
-            numArray.append(number)
-        }
-    }
-    
-    return numArray.count
+    return (start...end).filter { !String($0).contains("5") }.count
 }
 
 //dontGiveMeFive(1,9)
 //dontGiveMeFive(4,17)
 
-/**Your task is to write function findSum.
+/**
+ Your task is to write function findSum.
  Upto and including n, this function will return the sum of all multiples of 3 and 5.
- For example:*/
-
+ For example:
+*/
 func findSum(_ n: Int) -> Int {
     var sum = 0
     
@@ -259,19 +269,18 @@ func findSum(_ n: Int) -> Int {
     return sum
 }
 
-//findSum(5)
-//findSum(10)
+findSum(5)
+findSum(10)
 
-/**Write function replaceAll (Python: replace_all) that will replace all occurrences of an item with another.
+/**
+ Write function replaceAll (Python: replace_all) that will replace all occurrences of an item with another.
  Python / JavaScript: The function has to work for strings and lists.
- Example: replaceAll [1,2,2] 1 2 -> in list [1,2,2] we replace 1 with 2 to get new list [2,2,2]*/
-
+ Example: replaceAll [1,2,2] 1 2 -> in list [1,2,2] we replace 1 with 2 to get new list [2,2,2]
+*/
 func replaceAll<T: Equatable>(array: [T], old: T, new: T) -> [T] {
     var newArr: [T] = []
     
-    array.forEach {
-        $0 == old ? newArr.append(new) : newArr.append($0)
-    }
+    array.map { $0 == old ? newArr.append(new) : newArr.append($0) }
     
     return newArr
 }
@@ -282,8 +291,7 @@ func replaceAll<T: Equatable>(array: [T], old: T, new: T) -> [T] {
  Create a function oddOne that takes an [Int] as input and outputs the index at which the sole odd number is located.
  This method should work with arrays with negative numbers. If there are no odd numbers in the array, then the method should output nil.
  Examples:
- */
-
+*/
 func oddOne(_ arr: [Int]) -> Int? {
     return arr.enumerated().filter({ $0.element % 2 != 0 }).map({ $0.offset }).first
 }
@@ -295,8 +303,7 @@ func oddOne(_ arr: [Int]) -> Int? {
 
 /**
  Create a function add(n)/Add(n) which returns a function that always adds n to any number
- */
-
+*/
 func add(_ n: Int) -> ((Int) -> Int) {
     func a(_ b: Int) -> Int { return n + b }
     return a(_:)
@@ -315,7 +322,7 @@ func add(_ n: Int) -> ((Int) -> Int) {
 
 /**
  Given the triangle of consecutive odd numbers:
- */
+*/
 func rowSumOddNumbers(_ row: Int) -> Int {
     var currentNumber = 1
     var sum = 0
@@ -337,8 +344,7 @@ func rowSumOddNumbers(_ row: Int) -> Int {
 
 /**
  Determine the total number of digits in the integer (n>=0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits. Be careful to avoid overflows/underflows.
- */
-
+*/
 func digits(num n: UInt64) -> Int {
     return String(n).count
 }
@@ -351,8 +357,7 @@ func digits(num n: UInt64) -> Int {
  Given a two-dimensional array of integers, return the flattened version of the array with all the integers in the sorted (ascending) order.
  Example:
  Given [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]], your function should return [1, 2, 3, 4, 5, 6, 7, 8, 9].
- */
-
+*/
 func flattenAndSort<T: Comparable>(_ arr: [[T]]) -> [T] {
     return arr.flatMap({ return $0 }).sorted()
 }
@@ -365,8 +370,7 @@ func flattenAndSort<T: Comparable>(_ arr: [[T]]) -> [T] {
  The method takes two parameters, the query string and the array of strings to search, and returns an array.
  
  If the string isn't contained in any of the strings in the array, the method returns an array containing a single string: "Empty" (or Nothing in Haskell, or "None" in Python and C)
- */
-
+*/
 func wordSearch(_ str:String, _ arr:[String]) -> [String] {
     let result = arr.filter { $0.lowercased().contains(str.lowercased()) }
     return result.isEmpty ? ["Empty"] : result
@@ -379,8 +383,7 @@ func wordSearch(_ str:String, _ arr:[String]) -> [String] {
 /**
  Your task is to add up letters to one letter.
  The function will be given an Array<Character>, each one being a letter to add, and the function will return a Character.
- */
-
+*/
 func addLetters(_ letters: [Character]) -> Character {
     let alphabet = "abcdefghijklmnopqrstuvwxyz"
     
@@ -419,8 +422,7 @@ func addLetters(_ letters: [Character]) -> Character {
 
 /**
  Write a function that takes two strings, A and B, and returns the length of the longest possible substring that can be formed from the concatenation of either A + B or B + A containing only characters that do not appear in both A and B.
- */
-
+*/
 func longestSubstring(_ a: String, _ b: String) -> Int {
 //    var dict = [Character : Int]()
     
@@ -451,8 +453,7 @@ func longestSubstring(_ a: String, _ b: String) -> Int {
  
  Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
  Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
- */
-
+*/
 extension String {
     func toJadenCase() -> String {
         return self.components(separatedBy: " ").map { return $0.first!.uppercased() + $0.dropFirst(1) }.joined(separator: " ")
@@ -466,8 +467,7 @@ extension String {
  We will call a natural number a "doubleton number" if it contains exactly two distinct digits. For example, 23, 35, 100, 12121 are doubleton numbers, and 123 and 9980 are not.
  
  For a given natural number n (from 1 to 1 000 000), you need to find the next doubleton number. If n itself is a doubleton, return the next bigger than n.
- */
-
+*/
 func doubleton(_ num: Int) -> Int {
     return Set(String(num + 1).compactMap{ $0.wholeNumberValue }).count == 2 ? num + 1 : doubleton(num + 1)
 }
@@ -492,8 +492,7 @@ func doubleton(_ num: Int) -> Int {
  Xray should not have a dash within.
  Every word and punctuation mark should be seperated by a space ' '.
  There should be no trailing whitespace
- */
-
+*/
 func toNato(_ words: String) -> String {
     let letters =
         ["A": "Alfa",  "B": "Bravo",   "C": "Charlie",
@@ -530,8 +529,7 @@ func toNato(_ words: String) -> String {
  To prevent this from happening again, Arthur wants to make sure that there are at least as many women as men at this year's party. He gave you a list of integers of all the party goers.
  
  Arthur needs you to return true if he needs to invite more women or false if he is all set.
- */
-
+*/
 func inviteMoreWomen(_ arr: [Int]) -> Bool {
     return arr.reduce(0, +) >= 1
 }
@@ -546,8 +544,7 @@ func inviteMoreWomen(_ arr: [Int]) -> Bool {
  
  Strings passed in will consist of only letters and spaces.
  Spaces will be included only when more than one word is present.
- */
-
+*/
 func spinWords(in sentence: String) -> String {
     return sentence.components(separatedBy: " ").map { $0.count >= 5 ? String($0.reversed()) : $0 }.joined(separator: " ")
 }
@@ -560,8 +557,7 @@ func spinWords(in sentence: String) -> String {
  There is an array with some numbers. All numbers are equal except for one. Try to find it!
  It’s guaranteed that array contains at least 3 numbers.
  The tests contain some very huge arrays, so think about performance.
- */
-
+*/
 //func findUniq(_ arr: [Double]) -> Double {
 //
 //}
@@ -573,8 +569,7 @@ func spinWords(in sentence: String) -> String {
 
 /**
  Given two arrays a and b write a function comp(a, b) (orcompSame(a, b)) that checks whether the two arrays have the "same" elements, with the same multiplicities. "Same" means, here, that the elements in b are the elements in a squared, regardless of the order.
- */
-
+*/
 func comp(_ a: [Int], _ b: [Int]) -> Bool {
     return a.map { pow(Double($0), 2) }.sorted() == b.map { Double($0) }.sorted()
 }
@@ -584,7 +579,9 @@ func comp(_ a: [Int], _ b: [Int]) -> Bool {
 //
 //comp(a1, a2)
 
-/**You are given an array(list) strarr of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.*/
+/**
+ You are given an array(list) strarr of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.
+*/
 
 //func longestConsec(_ strarr: [String], _ k: Int) -> String {
 //    var longestString = ""
@@ -628,8 +625,7 @@ func comp(_ a: [Int], _ b: [Int]) -> Bool {
  6. Onionrings
  7. Milkshake
  8. Coke
- */
-
+*/
 func getOrder(_ input: String) -> String {
     var placeholderString = ""
     var rawValueArray = [Int]()
@@ -674,8 +670,7 @@ func getOrder(_ input: String) -> String {
  You need to return a string that looks like a diamond shape when printed on the screen, using asterisk (*) characters. Trailing spaces should be removed, and every line must be terminated with a newline character (\n).
  
  Return null/nil/None/... if the input is an even number or negative, as it is not possible to print a diamond of even or negative size.
- */
-
+*/
 func diamond(_ size: Int) -> String {
     var diamondString = ""
     
@@ -701,8 +696,7 @@ func diamond(_ size: Int) -> String {
 
 /**
  Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
- */
-
+*/
 func persistence(for num: Int) -> Int {
     let value = persistence(for: String(num).compactMap { $0.wholeNumberValue }.reduce(1, *))
     print(value)
@@ -721,8 +715,7 @@ func persistence(for num: Int) -> Int {
  Make a function that will return a greeting statement that uses an input; your program should return, "Hello, <name> how are you doing today?".
 
  [Make sure you type the exact thing I wrote or the program may not execute properly]
- */
-
+*/
 func greet(_ name: String) -> String {
     return "Hello, \(name) how are you doing today?"
 }
@@ -823,11 +816,16 @@ func monkeyCount(_ n: Int) -> [Int] {
 I.e. - [10,5,7,2,4,1,24] & [8,23,29,25,40,0,24] -> 2nd Largest : 29 , 2nd Smallest: 1
 */
 
-func findSecondNumber(in array1: [Int], and array2: [Int]) -> Int {
-    return (array1 + array2).sorted().index(after: 0)
+func findSecondNumber(in array1: [Int], and array2: [Int]) -> (secondSmallest: Int, secondLargest: Int) {
+    let combinedArr = (array1 + array2).sorted()
+    
+    let secondSmallest = combinedArr[1]
+    let secondLargest = combinedArr[combinedArr.count - 2]
+    
+    return (secondSmallest, secondLargest)
 }
 
-findSecondNumber(in: [10,5,7,2,4,1,24], and: [8,23,29,25,40,0,24])
+findSecondNumber(in: [10,5,7,2,4,1,24], and: [8,23,29,25,400,24])
  
 /**
 2) Program to print elements/character of an string present on odd position, along with the count of those elements/characters in the entire string
@@ -840,13 +838,15 @@ func oddPositionAndCount(of string: String) -> [Character : Int] {
     string.enumerated().forEach {
         if $0.offset % 2 == 1, dict[$0.element] == nil {
             dict[$0.element] = 1
-        } 
+        } else if dict[$0.element] != nil {
+            dict[$0.element] = dict[$0.element]! + 1
+        }
     }
     
     return dict
 }
 
-oddPositionAndCount(of: "abbloseckc")
+//oddPositionAndCount(of: "abbloseckc")
 
 /**
  3) Write a program to find the index of a value in a sorted array. If the value does not find return the index where it would be if it were inserted in order.
@@ -856,3 +856,16 @@ oddPositionAndCount(of: "abbloseckc")
  [1, 2, 4, 5, 6] 7(target) -> 5(index)
 */
 
+func findIndex(of target: Int, in array: [Int]) -> Int {
+    var index: Int?
+    
+    array.enumerated().forEach {
+        if $0.element == target {
+            index = $0.offset
+        }
+    }
+    
+    return index ?? target > array.count ? array.count : 0
+}
+
+//findIndex(of: 0, in: [1, 2, 4, 5, 6])
