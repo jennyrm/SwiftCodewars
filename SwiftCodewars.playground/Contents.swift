@@ -152,12 +152,12 @@ func find_short(_ str: String) -> Int {
     
     //    return wordCountArray[0]
     
-    return str.split(separator: " ").map { $0 }.map { $0.count }.sorted().first!
+    return str.components(separatedBy: " ").map { $0.count }.sorted().first!
 }
 
-//find_short("bitcoin take over the world maybe who knows perhaps")
-//find_short("lets talk about javascript the best language")
-//find_short("i want to travel the world writing code one day")
+find_short("bitcoin take over the world maybe who knows perhaps")
+find_short("lets talk about javascript the best language")
+find_short("i want to travel the world writing code one day")
 
 /**
  Digital root is the recursive sum of all the digits in a number.
@@ -373,12 +373,13 @@ func flattenAndSort<T: Comparable>(_ arr: [[T]]) -> [T] {
 */
 func wordSearch(_ str:String, _ arr:[String]) -> [String] {
     let result = arr.filter { $0.lowercased().contains(str.lowercased()) }
+    
     return result.isEmpty ? ["Empty"] : result
 }
 
-//wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"])
-//wordSearch("me", ["home", "milk", "Mercury", "fish"])
-//wordSearch("abcd", ["za", "aB", "Abc", "zAB", "zbc"])
+wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"])
+wordSearch("me", ["home", "milk", "Mercury", "fish"])
+wordSearch("abcd", ["za", "aB", "Abc", "zAB", "zbc"])
 
 /**
  Your task is to add up letters to one letter.
@@ -456,6 +457,7 @@ func longestSubstring(_ a: String, _ b: String) -> Int {
 */
 extension String {
     func toJadenCase() -> String {
+        print(self.components(separatedBy: " ").map { return $0.first } )
         return self.components(separatedBy: " ").map { return $0.first!.uppercased() + $0.dropFirst(1) }.joined(separator: " ")
     }
 }
@@ -842,11 +844,12 @@ func oddPositionAndCount(of string: String) -> [Character : Int] {
             dict[$0.element] = dict[$0.element]! + 1
         }
     }
+    //    string.enumerated().forEach { if $0.offset % 2 == 1 { dict[$0.element, default: 0] += 1 } }
     
     return dict
 }
 
-//oddPositionAndCount(of: "abbloseckc")
+oddPositionAndCount(of: "abbloseckc")
 
 /**
  3) Write a program to find the index of a value in a sorted array. If the value does not find return the index where it would be if it were inserted in order.
