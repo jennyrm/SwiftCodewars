@@ -802,16 +802,16 @@ func monkeyCount(_ n: Int) -> [Int] {
  Examples:
  */
 
-//func horMirror(_ s: String) -> String {
-//    // your code
-//}
-//func vertMirror(_ s: String) -> String {
-//    // your code
-//}
-// replace the dots with function parameter
-//func oper(..., _ s: String) -> String {
-//    // your code
-//}
+func horMirror(_ s: String) -> String {
+    // your code
+}
+func vertMirror(_ s: String) -> String {
+    // your code
+}
+ replace the dots with function parameter
+func oper(..., _ s: String) -> String {
+    // your code
+}
 
 /**
  1) Find the 2nd largest and 2nd smallest number in two arrays of numbers combined
