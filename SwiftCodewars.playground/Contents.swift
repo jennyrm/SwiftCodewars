@@ -802,16 +802,16 @@ func monkeyCount(_ n: Int) -> [Int] {
  Examples:
  */
 
-func horMirror(_ s: String) -> String {
-    // your code
-}
-func vertMirror(_ s: String) -> String {
-    // your code
-}
- replace the dots with function parameter
-func oper(..., _ s: String) -> String {
-    // your code
-}
+//func horMirror(_ s: String) -> String {
+//    // your code
+//}
+//func vertMirror(_ s: String) -> String {
+//    // your code
+//}
+// replace the dots with function parameter
+//func oper(..., _ s: String) -> String {
+//    // your code
+//}
 
 /**
  1) Find the 2nd largest and 2nd smallest number in two arrays of numbers combined
@@ -872,3 +872,21 @@ func findIndex(of target: Int, in array: [Int]) -> Int {
 }
 
 //findIndex(of: 0, in: [1, 2, 4, 5, 6])
+
+/**
+ You are given an input string.
+ For each symbol in the string if it's the first character occurrence, replace it with a '1', else replace it with the amount of times you've already seen it.
+*/
+func numericals(_ str: String) -> String {
+    var dict = [Character : Int]()
+    var countStr = ""
+  
+    str.map { $0 }.forEach {
+        dict[$0, default : 0] += 1
+        countStr.append(String(dict[$0]!))
+    }
+    
+    return countStr
+}
+
+numericals("Hello, World!")
