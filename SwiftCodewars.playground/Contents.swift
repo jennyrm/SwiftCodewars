@@ -699,11 +699,28 @@ func diamond(_ size: Int) -> String {
 /**
  Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
 */
+//func persistence(for num: Int) -> Int {
+//    let a = String(num).compactMap { $0.wholeNumberValue }.reduce(1, *)
+//
+//    print(a)
+//
+//    if a > 10 {
+//        1 + persistence(for: a)
+//    }
+//
+//    return a
+//}
+
 func persistence(for num: Int) -> Int {
-    let value = persistence(for: String(num).compactMap { $0.wholeNumberValue }.reduce(1, *))
-    print(value)
+    var num = num
+    var count = 0
+
+    while num >= 10 {
+        num = String(num).compactMap { $0.wholeNumberValue }.reduce(1, *)
+        count += 1
+    }
  
-    return 0
+    return count
 }
 
 //persistence(for: 39)
@@ -711,7 +728,6 @@ func persistence(for num: Int) -> Int {
 //persistence(for: 4)
 //persistence(for: 18)
 //persistence(for: 28)
-
 
 /**
  Make a function that will return a greeting statement that uses an input; your program should return, "Hello, <name> how are you doing today?".
@@ -735,7 +751,6 @@ func greet(_ name: String) -> String {
 
  The size will always be positive and will only use whole numbers.
  */
-
 func stringy(_ size: Int) -> String {
     var binaryString = ""
     
@@ -827,13 +842,12 @@ func findSecondNumber(in array1: [Int], and array2: [Int]) -> (secondSmallest: I
     return (secondSmallest, secondLargest)
 }
 
-findSecondNumber(in: [10,5,7,2,4,1,24], and: [8,23,29,25,400,24])
+//findSecondNumber(in: [10,5,7,2,4,1,24], and: [8,23,29,25,400,24])
  
 /**
 2) Program to print elements/character of an string present on odd position, along with the count of those elements/characters in the entire string
 i.e abbloseckc - b:2,l:1,s:1,c:2
 */
-
 func oddPositionAndCount(of string: String) -> [Character : Int] {
     var dict = [Character : Int]()
     
@@ -849,7 +863,7 @@ func oddPositionAndCount(of string: String) -> [Character : Int] {
     return dict
 }
 
-oddPositionAndCount(of: "abbloseckc")
+//oddPositionAndCount(of: "abbloseckc")
 
 /**
  3) Write a program to find the index of a value in a sorted array. If the value does not find return the index where it would be if it were inserted in order.
@@ -858,7 +872,6 @@ oddPositionAndCount(of: "abbloseckc")
  [1, 2, 4, 5, 6] 0(target) -> 0(index)
  [1, 2, 4, 5, 6] 7(target) -> 5(index)
 */
-
 func findIndex(of target: Int, in array: [Int]) -> Int {
     var index: Int?
     
@@ -889,4 +902,5 @@ func numericals(_ str: String) -> String {
     return countStr
 }
 
-numericals("Hello, World!")
+//numericals("Hello, World!")
+
