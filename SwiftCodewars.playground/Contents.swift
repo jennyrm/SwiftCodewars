@@ -907,3 +907,13 @@ func numericals(_ str: String) -> String {
 /**
  TwoSum
 */
+
+/**
+ Write a function called repeatStr which repeats the given string string exactly n times.
+ */
+func repeatStr(_ n: Int, _ string: String) -> String {
+  return String(repeating: string, count: n)
+}
+
+repeatStr(6, "I") // "IIIIII"
+repeatStr(5, "Hello") // "HelloHelloHelloHelloHello"
