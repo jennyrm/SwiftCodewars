@@ -917,3 +917,7 @@ func repeatStr(_ n: Int, _ string: String) -> String {
 
 repeatStr(6, "I") // "IIIIII"
 repeatStr(5, "Hello") // "HelloHelloHelloHelloHello"
+
+func simpleMultiplication(_ num: Int) -> Int {
+    return num % 2 == 0 ? num * 8 : num * 9
+}
