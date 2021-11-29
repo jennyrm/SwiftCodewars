@@ -906,11 +906,11 @@ func numericals(_ str: String) -> String {
 
 /**
  TwoSum
-*/
+ */
 
 /**
  Write a function called repeatStr which repeats the given string string exactly n times.
- */
+*/
 func repeatStr(_ n: Int, _ string: String) -> String {
   return String(repeating: string, count: n)
 }
@@ -921,3 +921,23 @@ repeatStr(5, "Hello") // "HelloHelloHelloHelloHello"
 func simpleMultiplication(_ num: Int) -> Int {
     return num % 2 == 0 ? num * 8 : num * 9
 }
+
+/**Switch it Up!
+*/
+func switchItUp(_ number: Int) -> String {
+    switch number {
+    case 0: return "One"
+    case 1: return "Two"
+    case 2: return "Three"
+    case 3: return "Four"
+    case 4:  return "Five"
+    case 5: return "Six"
+    case 6: return "Seven"
+    case 7: return "Eight"
+    case 8: return "Nine"
+    case 9: return "Ten"
+    default: return ""
+    }
+}
+
+switchItUp(9)
